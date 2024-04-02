@@ -13,17 +13,17 @@ import com.etek.fleetsystem.repositories.JobTitleRepository;
 public class JobTitleService {
 	@Autowired
 	private JobTitleRepository jobTitleRepository;
-	
+
 	//Return list of countries
 	public List<JobTitle> getJobTitles(){
 		return jobTitleRepository.findAll();
 	}
-	
+
 	//SAve new JobTitle
 	public void save(JobTitle jobTitle) {
 		jobTitleRepository.save(jobTitle);
 	}
-	
+
 	//get by id
 	public Optional<JobTitle> findById(int id) {
 		return jobTitleRepository.findById(id);

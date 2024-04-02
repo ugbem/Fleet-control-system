@@ -14,20 +14,20 @@ import com.etek.fleetsystem.repositories.VehicleMovementRepository;
 @Service
 public class VehicleMovementService {
 
-	
+
 	@Autowired
 	private VehicleMovementRepository vehicleMovementRepository;
-	
+
 	//Return list of vehicleMovements
 	public List<VehicleMovement> getVehicleMovements(){
 		return vehicleMovementRepository.findAll();
 	}
-	
+
 	//SAve new vehicleMovement
 	public void save(VehicleMovement vehicleMovement) {
 		vehicleMovementRepository.save(vehicleMovement);
 	}
-	
+
 	//get by id
 	public Optional<VehicleMovement> findById(int id) {
 		return vehicleMovementRepository.findById(id);

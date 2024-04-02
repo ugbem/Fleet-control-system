@@ -1,8 +1,10 @@
 package com.etek.fleetsystem.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.etek.fleetsystem.security.models.Role;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -14,14 +16,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
-import com.etek.fleetsystem.security.models.Role;
-
-
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
-public class User {		
+public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
 	private int id;
@@ -39,8 +35,7 @@ public class User {
 	Set<Role> roles = new HashSet<>();
 
 	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public User(int id, String firstname, String lastname, String username, String password, Set<Role> roles) {
@@ -100,7 +95,7 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
-	
+
+
+
 }

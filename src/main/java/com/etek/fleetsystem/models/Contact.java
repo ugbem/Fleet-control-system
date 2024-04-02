@@ -15,7 +15,7 @@ import jakarta.persistence.Id;
 @jakarta.persistence.Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Contact {
-		
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -26,7 +26,7 @@ public class Contact {
 	private String email;
 	private String mobile;
 	private String remarks;
-	
+
 	public Contact() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -99,8 +99,8 @@ public class Contact {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	
-	
-	
-	
+
+
+
+
 }

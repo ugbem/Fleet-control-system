@@ -15,17 +15,17 @@ public class VehicleService {
 
 	@Autowired
 	private VehicleRepository vehicleRepository;
-	
+
 	//Return list of vehicles
 	public List<Vehicle> getVehicles(){
 		return vehicleRepository.findAll();
 	}
-	
+
 	//SAve new vehicle
 	public void save(Vehicle vehicle) {
 		vehicleRepository.save(vehicle);
 	}
-	
+
 	//get by id
 	public Optional<Vehicle> findById(int id) {
 		return vehicleRepository.findById(id);
@@ -34,6 +34,6 @@ public class VehicleService {
 	public void delete(Integer id) {
 		vehicleRepository.deleteById(id);
 	}
-	
- 
+
+
 }

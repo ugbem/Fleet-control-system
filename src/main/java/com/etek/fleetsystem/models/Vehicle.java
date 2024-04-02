@@ -2,6 +2,8 @@ package com.etek.fleetsystem.models;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,15 +12,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 
 @Entity
 public class Vehicle {
-		
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
@@ -28,46 +25,46 @@ public class Vehicle {
 	@ManyToOne
 	@JoinColumn(name="vehicletypeid", insertable=false, updatable=false)
 	private VehicleType vehicleType;
-	private Integer vehicletypeid;	
-	
+	private Integer vehicletypeid;
+
 	private String vehicleNumber;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date registrationDate;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date acquisitionDate;
 	private String description;
-	
+
 	@ManyToOne
 	@JoinColumn(name="vehiclemakeid", insertable=false, updatable=false)
 	private VehicleMake vehicleMake;
 	private Integer vehiclemakeid;
-	
+
 	private String power;
 	private String fuelCapacity;
 	@ManyToOne
 	@JoinColumn(name="vehiclestatusid", insertable=false, updatable=false)
 	private VehicleStatus vehicleStatus;
-	private Integer vehiclestatusid;	
-	
+	private Integer vehiclestatusid;
+
 	private String netWeight;
 
 	@ManyToOne
 	@JoinColumn(name="employeeid", insertable=false, updatable=false)
 	private Employee inCharge;
 	private Integer employeeid;
-	
+
 	@ManyToOne
 	@JoinColumn(name="vehiclemodelid", insertable=false, updatable=false)
-	private VehicleModel vehicleModel;	
+	private VehicleModel vehicleModel;
 	private Integer vehiclemodelid;
 
 	@ManyToOne
-	@JoinColumn(name="locationid", insertable=false, updatable=false)	
+	@JoinColumn(name="locationid", insertable=false, updatable=false)
 	private Location currentLocation;
 	private Integer locationid;
-	
+
 	private String remarks;
 
 	public Vehicle() {
@@ -280,6 +277,6 @@ public class Vehicle {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	
-	
+
+
 }

@@ -2,12 +2,7 @@ package com.etek.fleetsystem.models;
 
 import java.util.Date;
 
-
-
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -16,20 +11,20 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Employee extends Person {
-		
+
 	@ManyToOne
 	@JoinColumn(name="employeetypeid", insertable=false, updatable=false)
 	private EmployeeType employeeType;
 	private Integer employeetypeid;
 	private String photo;
 	private String username;
-	
+
 	@ManyToOne
 	@JoinColumn(name="jobtitleid", insertable=false, updatable=false)
 	private JobTitle jobTitle;
 	private Integer jobtitleid;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date hireDate;
 
 	public Employee() {
@@ -65,10 +60,12 @@ public class Employee extends Person {
 		this.employeetypeid = employeetypeid;
 	}
 
+	@Override
 	public String getPhoto() {
 		return photo;
 	}
 
+	@Override
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
@@ -104,6 +101,6 @@ public class Employee extends Person {
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
-	
-	
+
+
 }

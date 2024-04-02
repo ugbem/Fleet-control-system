@@ -1,23 +1,24 @@
 package com.etek.fleetsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class State {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	
+	private Integer id;
 	private String name;
 	private String capital;
     private String code;
@@ -25,9 +26,9 @@ public class State {
 	@ManyToOne
 	@JoinColumn(name="countryid", insertable=false, updatable=false)
 	private Country country;
-	
+
 	private Integer countryid;
-	
+
 	private String details;
 
 	public State() {
@@ -102,7 +103,7 @@ public class State {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	
-	
-	
+
+
+
 }

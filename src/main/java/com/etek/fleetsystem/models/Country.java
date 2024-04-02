@@ -2,9 +2,6 @@ package com.etek.fleetsystem.models;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +11,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Country {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,15 +20,15 @@ public class Country {
 	private String description;
 	private String nationality;
 	private String continent;
-	
-	
-	
+
+
+
 	public Country() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
- 
+
 
 	public Country(Integer id, String code, String capital, String description, String nationality, String continent,
 			List<State> states) {

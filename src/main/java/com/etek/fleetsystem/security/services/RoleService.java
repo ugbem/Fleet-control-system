@@ -1,5 +1,8 @@
 package com.etek.fleetsystem.security.services;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,16 +11,12 @@ import com.etek.fleetsystem.repositories.UserRepository;
 import com.etek.fleetsystem.security.models.Role;
 import com.etek.fleetsystem.security.repositories.RoleRepository;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
 @Service
 public class RoleService {
-    
+
     @Autowired
     private RoleRepository roleRepository;
-    
+
     @Autowired
     private UserRepository userRepository;
 

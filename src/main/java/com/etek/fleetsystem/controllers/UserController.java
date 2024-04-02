@@ -38,14 +38,14 @@ public class UserController {
 	//Modified method to Add a new user User
 	@PostMapping(value="users/addNew")
 	public RedirectView addNew(User user, RedirectAttributes redir) {
-		
-		userService.save(user);	
-		
+
+		userService.save(user);
+
 		RedirectView  redirectView= new RedirectView("/login",true);
-		
+
 	    redir.addFlashAttribute("message",	"You successfully registered! You can now login");
-	        
-	    return redirectView;				
+
+	    return redirectView;
 	}
-	
+
 }

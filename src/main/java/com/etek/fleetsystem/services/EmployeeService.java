@@ -13,22 +13,22 @@ import com.etek.fleetsystem.repositories.UserRepository;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	//Return list of employees
 	public List<Employee> getEmployees(){
 		return employeeRepository.findAll();
 	}
-	
+
 	//SAve new employee
 	public void save(Employee employee) {
 		employeeRepository.save(employee);
 	}
-	
+
 	//get by id
 	public Optional<Employee> findById(int id) {
 		return employeeRepository.findById(id);
@@ -37,11 +37,11 @@ public class EmployeeService {
 	public void delete(Integer id) {
 		employeeRepository.deleteById(id);
 	}
-	
+
 	//Get employees by keyword
 	public List<Employee> findByKeyword(String keyword){
 		return employeeRepository.findByKeyword(keyword);
-		
+
 	}
 
 	//Set the Username of the employee where firstname and lastname match

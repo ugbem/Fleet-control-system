@@ -1,13 +1,13 @@
 package com.etek.fleetsystem.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.etek.fleetsystem.models.User;
 import com.etek.fleetsystem.repositories.UserRepository;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -36,7 +36,16 @@ public class UserService {
 	//Update User
 	public void save(User user) {
 		user.setPassword(user.getPassword());
-		userRepository.save(user);
+		try {
+			userRepository.save(user);
+		}catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+
+	}
+
+	public User findByUsernameAndPassword(String username, String password) {
+		return userRepository.findByUsernameAndPassword(username, password);
 	}
 
 }

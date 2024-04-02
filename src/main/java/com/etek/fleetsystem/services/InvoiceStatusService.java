@@ -15,17 +15,17 @@ import com.etek.fleetsystem.repositories.InvoiceStatusRepository;
 public class InvoiceStatusService {
 	@Autowired
 	private InvoiceStatusRepository invoiceStatusRepository;
-	
+
 	//Return list of countries
 	public List<InvoiceStatus> getInvoiceStatuses(){
 		return invoiceStatusRepository.findAll();
 	}
-	
+
 	//SAve new InvoiceStatus
 	public void save(InvoiceStatus invoiceStatus) {
 		invoiceStatusRepository.save(invoiceStatus);
 	}
-	
+
 	//get by id
 	public Optional<InvoiceStatus> findById(int id) {
 		return invoiceStatusRepository.findById(id);

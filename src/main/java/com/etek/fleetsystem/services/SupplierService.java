@@ -13,20 +13,20 @@ import com.etek.fleetsystem.repositories.SupplierRepository;
 
 @Service
 public class SupplierService {
-	
+
 	@Autowired
 	private SupplierRepository supplierRepository;
-	
+
 	//Return list of suppliers
 	public List<Supplier> getSuppliers(){
 		return supplierRepository.findAll();
 	}
-	
+
 	//SAve new supplier
 	public void save(Supplier supplier) {
 		supplierRepository.save(supplier);
 	}
-	
+
 	//get by id
 	public Optional<Supplier> findById(int id) {
 		return supplierRepository.findById(id);

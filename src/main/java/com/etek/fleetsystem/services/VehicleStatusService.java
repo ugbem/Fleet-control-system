@@ -14,17 +14,17 @@ import com.etek.fleetsystem.repositories.VehicleStatusRepository;
 public class VehicleStatusService {
 	@Autowired
 	private VehicleStatusRepository vehicleStatusRepository;
-	
+
 	//Return list of countries
 	public List<VehicleStatus> getVehicleStatuses(){
 		return vehicleStatusRepository.findAll();
 	}
-	
+
 	//SAve new VehicleStatus
 	public void save(VehicleStatus vehicleStatus) {
 		vehicleStatusRepository.save(vehicleStatus);
 	}
-	
+
 	//get by id
 	public Optional<VehicleStatus> findById(int id) {
 		return vehicleStatusRepository.findById(id);

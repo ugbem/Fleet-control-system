@@ -27,33 +27,33 @@ public class InvoiceController {
 
 
 	@GetMapping("/invoices")
-	public String getInvoices(Model model) {		
-		model.addAttribute("invoices", invoiceService.getInvoices());	
-		
+	public String getInvoices(Model model) {
+		model.addAttribute("invoices", invoiceService.getInvoices());
+
 		model.addAttribute("clients", clientService.getClients());
 		model.addAttribute("invoiceStatuses", invoiceStatusService.getInvoiceStatuses());
-	
+
 		return "Invoice";
-	}	
-	
+	}
+
 	@PostMapping("/invoices/addNew")
 	public String addNew(Invoice invoice) {
 		invoiceService.save(invoice);
 		return "redirect:/invoices";
 	}
-	
+
 	@RequestMapping("invoices/findById")
 	@ResponseBody
 	public Optional<Invoice> findById(int id) {
-	  return invoiceService.findById(id);	
-	}	
-	
+	  return invoiceService.findById(id);
+	}
+
 	@RequestMapping(value="/invoices/update", method= {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Invoice invoice) {
 		invoiceService.save(invoice);
 		return "redirect:/invoices";
 	}
-	
+
 	@RequestMapping(value="/invoices/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(Integer id) {
 		invoiceService.delete(id);

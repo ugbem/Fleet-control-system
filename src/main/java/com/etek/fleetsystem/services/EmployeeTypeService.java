@@ -13,17 +13,17 @@ import com.etek.fleetsystem.repositories.EmployeeTypeRepository;
 public class EmployeeTypeService {
 	@Autowired
 	private EmployeeTypeRepository employeeTypeRepository;
-	
+
 	//Return list of countries
 	public List<EmployeeType> getEmployeeTypes(){
 		return employeeTypeRepository.findAll();
 	}
-	
+
 	//SAve new EmployeeType
 	public void save(EmployeeType employeeType) {
 		employeeTypeRepository.save(employeeType);
 	}
-	
+
 	//get by id
 	public Optional<EmployeeType> findById(int id) {
 		return employeeTypeRepository.findById(id);

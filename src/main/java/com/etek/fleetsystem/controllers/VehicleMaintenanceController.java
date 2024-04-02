@@ -21,42 +21,42 @@ import com.etek.fleetsystem.services.VehicleService;
 @Controller
 public class VehicleMaintenanceController {
 
-	
+
 	@Autowired	private VehicleMaintenanceService vehicleMaintenanceService;
 	@Autowired	private VehicleService vehicleService;
 	@Autowired	private SupplierService supplierService;
 
 
 	@GetMapping("/vehicleMaintenances")
-	public String getVehicleMaintenances(Model model) {		
-		model.addAttribute("vehicleMaintenances", vehicleMaintenanceService.getVehicleMaintenances());	
-		
+	public String getVehicleMaintenances(Model model) {
+		model.addAttribute("vehicleMaintenances", vehicleMaintenanceService.getVehicleMaintenances());
+
 		model.addAttribute("vehicles", vehicleService.getVehicles());
 		model.addAttribute("suppliers", supplierService.getSuppliers());
-		
 
-		
+
+
 		return "VehicleMaintenance";
-	}	
-	
+	}
+
 	@PostMapping("/vehicleMaintenances/addNew")
 	public String addNew(VehicleMaintenance vehicleMaintenance) {
 		vehicleMaintenanceService.save(vehicleMaintenance);
 		return "redirect:/vehicleMaintenances";
 	}
-	
+
 	@RequestMapping("vehicleMaintenances/findById")
 	@ResponseBody
 	public Optional<VehicleMaintenance> findById(int id) {
-	  return vehicleMaintenanceService.findById(id);	
-	}	
-	
+	  return vehicleMaintenanceService.findById(id);
+	}
+
 	@RequestMapping(value="/vehicleMaintenances/update", method= {RequestMethod.PUT, RequestMethod.GET})
 	public String update(VehicleMaintenance vehicleMaintenance) {
 		vehicleMaintenanceService.save(vehicleMaintenance);
 		return "redirect:/vehicleMaintenances";
 	}
-	
+
 	@RequestMapping(value="/vehicleMaintenances/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(Integer id) {
 		vehicleMaintenanceService.delete(id);

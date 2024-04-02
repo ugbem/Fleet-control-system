@@ -16,12 +16,12 @@ import jakarta.persistence.ManyToOne;
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Client {
-	
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	
+
 	private String name;
 	private String address;
 	private String city;
@@ -29,14 +29,14 @@ public class Client {
 	private String mobile;
 	private String website;
 	private String email;
-	
-	
-	
+
+
+
 	public Client() {
-		
+
 	}
-	
-	
+
+
 
 	public Client(int id, String name, String address, String city, String phone, String mobile, String website,
 			String email, Country country, Integer countryid, State state, Integer stateid, String details) {
@@ -56,7 +56,7 @@ public class Client {
 		this.details = details;
 	}
 
-	
+
 
 	public int getId() {
 		return id;
@@ -218,11 +218,11 @@ public class Client {
 	@JoinColumn(name="countryid", insertable=false, updatable=false)
 	private Country country;
 	private Integer countryid;
-	
+
 	@ManyToOne
 	@JoinColumn(name="stateid", insertable=false, updatable=false)
-	private State state;	
+	private State state;
 	private Integer stateid;
-	
+
 	private String details;
 }

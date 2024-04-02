@@ -2,8 +2,6 @@ package com.etek.fleetsystem.models;
 
 import java.util.Date;
 
-
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -19,25 +17,25 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Invoice {	
-	
+public class Invoice {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date invoiceDate;
-	
+
 	@ManyToOne
-	@JoinColumn(name="invoicestatusid", insertable=false, updatable=false)	
+	@JoinColumn(name="invoicestatusid", insertable=false, updatable=false)
 	private InvoiceStatus invoiceStatus;
 	private Integer invoicestatusid;
-	
+
 	@ManyToOne
-	@JoinColumn(name="clientid", insertable=false, updatable=false)	
+	@JoinColumn(name="clientid", insertable=false, updatable=false)
 	private Client client;
 	private Integer clientid;
-	
+
 	private String remarks;
 
 	public Invoice() {
@@ -111,8 +109,8 @@ public class Invoice {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
-	}	
-	
-	
-	
+	}
+
+
+
 }

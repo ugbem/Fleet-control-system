@@ -28,39 +28,39 @@ public class SupplierController {
 
 
 	@GetMapping("/suppliers")
-	public String getSuppliers(Model model) {		
-		model.addAttribute("suppliers", supplierService.getSuppliers());	
-		
+	public String getSuppliers(Model model) {
+		model.addAttribute("suppliers", supplierService.getSuppliers());
+
 		model.addAttribute("countries", countryService.getCountries());
-		
+
 		model.addAttribute("states", stateService.getStates());
 
-		
+
 		return "Supplier";
-	}	
-	
+	}
+
 	@PostMapping("/suppliers/addNew")
 	public String addNew(Supplier supplier) {
 		supplierService.save(supplier);
 		return "redirect:/suppliers";
 	}
-	
+
 	@RequestMapping("suppliers/findById")
 	@ResponseBody
 	public Optional<Supplier> findById(int id) {
-	  return supplierService.findById(id);	
-	}	
-	
+	  return supplierService.findById(id);
+	}
+
 	@RequestMapping(value="/suppliers/update", method= {RequestMethod.PUT, RequestMethod.GET})
 	public String update(Supplier supplier) {
 		supplierService.save(supplier);
 		return "redirect:/suppliers";
 	}
-	
+
 	@RequestMapping(value="/suppliers/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
 	public String delete(Integer id) {
 		supplierService.delete(id);
 		return "redirect:/suppliers";
 	}
-	
+
 }
