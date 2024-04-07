@@ -3,19 +3,16 @@ package com.etek.fleetsystem;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.AuditorAware;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing(auditorAwareRef="auditorAware")
+//@EnableJpaAuditing(auditorAwareRef="auditorAware")
 public class FleetSystemApplication {
 
-	@Bean
-//	public AuditorAware<String> auditorAware() {
+    //@Bean //	public AuditorAware<String> auditorAware() {
 //		return new SpringSecurityAuditorAware();
 //	}
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		SpringApplication.run(FleetSystemApplication.class, args);
 	}
 

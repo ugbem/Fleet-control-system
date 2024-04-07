@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ApplicationController {
 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String goHome() {
 		return "index";
 	}
