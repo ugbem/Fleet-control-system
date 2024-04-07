@@ -2,7 +2,7 @@
  * By KindsonTheGenius
  */
 
-$('document').ready(function(){
+$('.btn-register').click(function(){
 	
 	var password = document.getElementById("password")
 	
@@ -19,6 +19,8 @@ $('document').ready(function(){
      }
 	
 	password.onchange = validatePassword;
-	confirmPassword.onkeyup = validatePassword;		
+	confirmPassword.onkeyup = validatePassword;
+	
+	return;		
 	
 });
